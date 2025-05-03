@@ -73,12 +73,10 @@ def home(request):
            
             res = requests.get(news_url, timeout=5)
             soup = BeautifulSoup(res.text, 'html.parser')
-            # extTitle=soup.find(class_=cls)
             extTitle=soup.find(class_=cls)
             newsTitle=extTitle.text 
             result = predict_sentiment(newsTitle)
             
-
                  
         except Exception as e:
             newsTitle = "SomeThing Wrong"
